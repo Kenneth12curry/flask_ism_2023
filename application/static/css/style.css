@@ -1,0 +1,87 @@
+/* Style optionnel pour la div */
+#maDiv {
+  background-color: #eee;
+  padding: 10px;
+}
+.acheter{
+    background-color: ;
+}
+.search{
+    margin-top:-40px;
+    margin-left:400px;
+}
+
+#avatar{
+    margin-top:80px;
+    margin-left:-150px;
+}
+
+.ava{
+     margin-left:-150px;
+}
+
+.avat
+{
+    margin-left:-500px;
+}
+
+.button{
+    margin-left:-400px;
+
+}
+
+.vertical-line
+{
+    border-left: 0.5px solid #333;
+    height: auto;
+    margin-left: 20px;
+}
+
+.hr{
+    margin-top:-50px;
+}
+
+.ftm{
+
+    margin-left:20px;
+}
+
+.radio{
+    margin-left:180px;
+}
+
+.re{
+     margin-left:-150px;
+}
+
+.se{
+     margin-left:-150px;
+}
+
+.num{
+    margin-left:175px;
+}
+
+.num1{
+    margin-left:-449px;
+}
+
+.sea{
+     margin-left:550px;
+}
+
+.lieu{
+     margin-left:55px;
+}
+
+.min{
+     margin-left:60px;
+}
+
+.max{
+     margin-left:67px;
+}
+
+.etat{
+    margin-left:73px;
+}

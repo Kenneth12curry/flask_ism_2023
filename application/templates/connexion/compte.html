@@ -1,0 +1,90 @@
+{% include 'shared/presentation.html' %}
+
+<body class="bg-light">
+
+    <header class="header header--auth">
+        <div class="header__inner">
+            <a href="{{url_for('index')}}" class="header-logo">
+                <span class="header-logo__brand">Expat-Dakar</span>
+                <img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar">
+            </a>
+            <span class="header-menu-toggle">
+                <a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle="" aria-label="Menu"></a>
+            </span>
+        </div>
+    </header>
+
+
+    <div class="auth-page__row">
+        <article class="auth-page__col">
+            <div class="auth">
+                <h1 class="auth__header">Bienvenue sur Expat-Dakar</h1>
+                <div class="auth__title">Pour acheter et vendre en toute sécurité, créez un compte ou<br />connectez-vous.</div>
+                <form method="POST" action="{{ url_for('compte') }}" accept-charset="UTF-8" >
+
+                    <div class="form-group">
+                        <label>Numéro de téléphone</label>
+                        <div class="input-group">
+                            <span class="input-group-prepend">
+                                <span class="input-group-text">
+                                    SN (+221)
+                                </span>
+                            </span>
+                            <input type="text" class="form-control" name="tel" placeholder="Saisir le numéro de téléphone" required>
+
+                        </div>
+                        <div class="errors"></div>
+                        <div class="errors"></div>
+                    </div>
+                    <div class="auth__submit">
+                        <button class="btn btn-warning w-100">Continuer</button>
+                    </div>
+                </form>
+                <span class="auth__or">ou</span>
+                <div class="auth__social">
+
+                    <a href="{{ url_for('inscription') }}" class="btn btn-primary w-100 mb-3">
+                        <span class="auth__social__button-title">S'inscrire</span>
+                    </a>
+
+                    <a href="" class="btn btn-info btn-tall btn-block">
+                        <span class="auth__social__button-title">Utiliser un compte Facebook</span>
+                    </a>
+                    <a href="" class="btn btn-danger btn-tall btn-block">
+                       <span class="auth__social__button-title">Utiliser un compte Google</span>
+                    </a>
+
+                </div>
+                <div class="auth__terms">
+                    En créant un compte et en vous connectant, vous acceptez nos <a href="#" target="_blank">Conditions et Charte d'utilisation</a>.
+                </div>
+                <div class="auth__footer">
+                    Besoin d'aide ? <a href="https://www.expat-dakar.com/contact">Contactez-nous</a>.
+                </div>
+            </div>
+        </article>
+    </div>
+
+    <div class="auth-page__row mb-4">
+        <div class="auth-benefits">
+            <div class="auth-benefits__inner">
+                <div class="auth-benefits__header">Avantages d'un compte</div>
+                <ul class="auth-benefits__list">
+                    <li class="auth-benefits__list-item">
+                        <span class="auth-benefits__title">Les vendeurs certifiés gagnent la confiance des acheteurs</span>
+                    </li>
+                    <li class="auth-benefits__list-item">
+                        <span class="auth-benefits__title">Obtenez une assistance personnalisée</span>
+                    </li>
+                    <li class="auth-benefits__list-item">
+                        <span class="auth-benefits__title">Accédez à notre tableau de bord vendeur</span>
+                    </li>
+                    <li class="auth-benefits__list-item">
+                        <span class="auth-benefits__title">Accéder aux annonces gratuites</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>

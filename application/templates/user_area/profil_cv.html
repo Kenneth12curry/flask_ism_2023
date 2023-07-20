@@ -1,0 +1,123 @@
+{% extends "layouts/base_user_area.html" %}
+
+{% block container %}
+<div>
+    <div class="d-flex justify-content-start">
+         <h5 class="mt-4">Mon profil de demandeur d'emploi</h5>
+    </div>
+
+     <div class="d-flex justify-content-start mt-5">
+          <p>
+              Nous vous invitons à remplir votre profil à 100%. Il est indispensable pour postuler à une offre d'emploi et
+          </p>
+     </div>
+    <div class="d-flex justify-content-start">
+          <p>
+              motiver la prise de contact.
+         </p>
+     </div>
+
+    <div class="ms-5">
+
+         <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="user">Nom & Prénom</label>
+             </div>
+             <input class="form-control w-50 ml-3" name="username" type="text" value="" id="user" >
+             <p class="d-flex justify-content-start"><small>Renseignez votre nom complet</small></p>
+             <div class="errors"></div>
+        </div>
+
+        <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="i">Titre / Poste</label>
+             </div>
+            <input class="form-control w-50 ml-3" name="username" type="text" value="" id="i" >
+            <p class="d-flex justify-content-start"><small>Titre de votre poste ex : Développeur, Administrateur ...</small></p>
+            <div class="errors"></div>
+        </div>
+
+        <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="a">Adresse</label>
+             </div>
+            <input class="form-control w-50 ml-3" name="username" type="text" value="" id="a" >
+             <p class="d-flex justify-content-start"><small>Lieu de résidence</small></p>
+            <div class="errors"></div>
+        </div>
+
+       <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="us">Domaine & Secteur d'activité</label>
+             </div>
+             <select class="form-control w-50 ml-3" id="us">
+                 <option value="">Sélectionner ...</option>
+                 <option value="">Publicité, Communication</option>
+                 <option value="">Agroalimentaire</option>
+                 <option value="">Santé</option>
+                 <option value="">ONG</option>
+                 <option value="">IT, Télécoms</option>
+            </select>
+            <p class="d-flex justify-content-start"><small>Sélectionnez votre domaine de compétence.</small></p>
+           <div class="errors"></div>
+        </div>
+
+        <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="p">Prétention salariale (Optional)</label>
+             </div>
+             <select class="form-control w-50 ml-3" id="p">
+                 <option value="">Sélectionner ...</option>
+                 <option value="">Entre 200 000 et 300 000 </option>
+                 <option value="">Entre 300 000 et 400 000</option>
+                 <option value="">Entre 400 000 et 500 000</option>
+                 <option value="">Non défini</option>
+            </select>
+            <p class="d-flex justify-content-start"><small>Sélectionnez votre prétention salarial .</small></p>
+           <div class="errors"></div>
+        </div>
+
+        <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="c">Compétences & récommendations</label>
+             </div>
+            <input class="form-control w-50 ml-3" name="username" type="text" value="" id="c" placeholder="Ajouter une compétence ..." >
+             <p class="d-flex justify-content-start"><small>Énumérez vos compétences</small></p>
+            <div class="errors"></div>
+        </div>
+
+        <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="ci">Centres d'intérêt</label>
+             </div>
+            <input class="form-control w-50 ml-3" name="username" type="text" value="" id="ci" placeholder="Ajouter un centre d'intérêt" >
+             <p class="d-flex justify-content-start"><small>Ajouter vos centres d’intérêts et vos hobbies</small></p>
+            <div class="errors"></div>
+        </div>
+
+         <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="l">Langues</label>
+             </div>
+            <input class="form-control w-50 ml-3" name="username" type="text" value="" id="l" placeholder="Ajouter une langue ..." >
+             <p class="d-flex justify-content-start"><small>Mentionnez vos langues étrangères parlées</small></p>
+            <div class="errors"></div>
+        </div>
+
+         <div class="form-group">
+             <div class="d-flex justify-content-start">
+                   <label for="cv">Curriculum Vitae</label>
+             </div>
+            <input class="form-control w-50 ml-3" name="username" type="file" value="" id="cv" placeholder="" accept=".jpg,.jpeg,.png" >
+             <p class="d-flex justify-content-start"><small>Télécharger votre CV : Seul les fichers (DOC,DOCX et PDF) sont acceptés</small></p>
+            <div class="errors"></div>
+        </div>
+
+        <div>
+            <button type="submit" class="button btn btn-warning mb-3">Enregistrer</button>
+        </div>
+
+    </div>
+
+</div>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    {{super()}} | Admin - User
+{% endblock %}
+
+{% block content %}
+    <h1>Nouvelle Image pour un Article</h1>
+    <hr>
+
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>Succès!</strong> {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    {% endfor %}
+
+
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <form action="{{ url_for('add_images_articles') }}" method="POST">
+                {{ form.csrf_token }}
+                <div class="form-group mb-4">
+                    {{ form.img_url.label }}
+                    {{ form.img_url(class='form-control') }}
+                    <ul>
+                        {% for error in form.img_url.errors %}
+                            <li><small class="text-danger">{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="form-group mb-4">
+                    {{ form.article_id.label }}
+                    {{ form.article_id(class='form-control') }}
+                    <ul>
+                        {% for error in form.article_id.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <br/>
+                <button class="btn btn-block btn-lg btn-primary mb-3">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

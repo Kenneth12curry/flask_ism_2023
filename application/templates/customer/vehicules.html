@@ -1,0 +1,412 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+
+<h4 class="d-flex justify-content-start mt-3">Véhicules</h4>
+
+<div class="listings-page-search__hero-section-image mt-3">
+    <img class="listings-page-search__hero-image" alt="vehicles" src="https://www.expat-dakar.com/assets/ed-site/img/static/car-search-hero-desktop.ebd18baa.png" loading="lazy">
+</div>
+
+<div class="listings-page-search__filters">
+    <div class="listings-page-search__filters__inner">
+        <ul class="nav nav-tabs listings-page-search__filters-tabs" role="tablist">
+
+            <li class="listings-page-search__filters-ta {% if request.path == '/expat/article/vehicules' %}bg-primary text-white {% endif %}">
+                <a href="{{url_for('vehicules')}}" class="nav-link listings-page-search__filters-tab__link" data-toggle="tab" role="tab" title="Toutes les catégories" aria-selected="false">
+                    <span class="listings-page-search__filters-tab__link-title">Toutes les catégories</span>
+                </a>
+            </li>
+
+            <li class="listings-page-search__filters-ta {% if request.path == '/expat/article/voitures' %}bg-primary text-white {% endif %}">
+                <a href="{{url_for('voitures')}}" class="nav-link listings-page-search__filters-tab__link " data-toggle="tab" role="tab" title="Voitures">
+                    <span class="listings-page-search__filters-tab__link-title">Voitures</span>
+                </a>
+            </li>
+
+            <li class="listings-page-search__filters-ta {% if request.path == '/expat/article/motos&scooters' %}bg-primary text-white {% endif %}">
+                <a href="{{url_for('motos')}}" class="nav-link listings-page-search__filters-tab__link " data-toggle="tab" role="tab" title="Motos &amp; scooters">
+                    <span class="listings-page-search__filters-tab__link-title">Motos & scooters</span>
+                </a>
+            </li>
+
+            <li class="listings-page-search__filters-tab {% if request.path == '/expat/article/location&voiture' %}bg-primary text-white {% endif %}">
+                <a href="{{url_for('location')}}" class="nav-link listings-page-search__filters-tab__link " data-toggle="tab" role="tab" title="Location de voiture">
+                    <span class="listings-page-search__filters-tab__link-title">Location de voiture</span>
+                </a>
+            </li>
+
+            <li class="listings-page-search__filters-tab {% if request.path == '/expat/article/equipements&pieces' %}bg-primary text-white {% endif %}">
+                <a href="{{url_for('pieces')}}" class="nav-link listings-page-search__filters-tab__link active" data-toggle="tab" role="tab" title="Équipements &amp; pièces" aria-selected="true">
+                    <span class="listings-page-search__filters-tab__link-title">Équipements & pièces</span>
+                </a>
+            </li>
+
+        </ul>
+
+        {% if request.path == "/expat/article/vehicules" %}
+
+            <h5 class="d-flex justify-content-start mt-3 ms-5">Toutes les catégories</h5>
+                <form action="{{url_for('annonceVehicule')}}" method="GET">
+                    <div class="d-flex">
+                          <div class="mb-3" class="form-control"aria-describedby="emailHelp">
+                              <select name="value" class="form-control ms-5" aria-describedby="emailHelp">
+                                  <option>Véhicules</option>
+                                  <option>Voitures</option>
+                                  <option>Motos & Scooters</option>
+                                  <option>Location de voiture</option>
+                                  <option>Équipements & pièces</option>
+                                  <option>Camions & semi-remorques</option>
+                              </select>
+                          </div>
+                         <div class="mb-3" class="form-control">
+                             <input type="text" class="form-control  lieu" placeholder="Lieu" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 min" placeholder="Min prix" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 max " placeholder="Max prix" />
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3 mb-3">
+                          <div class="mb-3" class="form-control" aria-describedby="emailHelp">
+                              <a class="btn btn-secondary ms-5" href="">Recherche avançée</a>
+                          </div>
+                         <div class="mb-3" class="form-control ms-5"aria-describedby="emailHelp">
+                             <button class="btn btn-warning sea w-50">Recherche</button>
+                        </div>
+                    </div>
+            </form>
+
+        {% endif %}
+
+        {% if request.path == "/expat/article/voitures" %}
+
+            <h5 class="d-flex justify-content-start mt-3 ms-5">Voitures</h5>
+                <form>
+                    <div class="d-flex">
+                         <div class="mb-3" class="form-control">
+                             <input type="text" class="form-control  lieu" placeholder="Lieu" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 min" placeholder="Min prix" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 max " placeholder="Max prix" />
+                        </div>
+                         <div class="mb-3" class="form-control">
+                             <select type="number" class="form-control me-5 etat">
+                                 <option>État</option>
+                                 <option>Neuf</option>
+                                 <option>Reconditionné</option>
+                                 <option>D'occassion</option>
+                                 <option>Venant</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3 mb-3">
+                          <div class="mb-3" class="form-control" aria-describedby="emailHelp">
+                              <a class="btn btn-secondary ms-5" href="">Recherche avançée</a>
+                          </div>
+                         <div class="mb-3" class="form-control ms-5"aria-describedby="emailHelp">
+                             <button class="btn btn-warning sea w-50">Recherche</button>
+                        </div>
+                    </div>
+                </form>
+
+        {% endif %}
+
+         {% if request.path == "/expat/article/motos&scooters" %}
+
+            <h5 class="d-flex justify-content-start mt-3 ms-5">Motos & scooters</h5>
+                <form>
+                    <div class="d-flex">
+                         <div class="mb-3" class="form-control">
+                             <input type="text" class="form-control  lieu" placeholder="Lieu" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 min" placeholder="Min prix" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 max " placeholder="Max prix" />
+                        </div>
+                         <div class="mb-3" class="form-control">
+                             <select type="number" class="form-control me-5 etat">
+                                 <option>État</option>
+                                 <option>Neuf</option>
+                                 <option>Reconditionné</option>
+                                 <option>D'occassion</option>
+                                 <option>Venant</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3 mb-3">
+                          <div class="mb-3" class="form-control" aria-describedby="emailHelp">
+                              <a class="btn btn-secondary ms-5" href="">Recherche avancée</a>
+                          </div>
+                         <div class="mb-3" class="form-control ms-5"aria-describedby="emailHelp">
+                             <button class="btn btn-warning sea w-50">Recherche</button>
+                        </div>
+                    </div>
+                </form>
+
+        {% endif %}
+
+        {% if request.path == "/expat/article/location&voiture" %}
+
+            <h5 class="d-flex justify-content-start mt-3 ms-5">Location de voiture</h5>
+                <form>
+                    <div class="d-flex">
+                         <div class="mb-3" class="form-control">
+                             <input type="text" class="form-control  lieu" placeholder="Lieu" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 min" placeholder="Min prix" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 max " placeholder="Max prix" />
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3 mb-3">
+                         <div class="mb-3" class="form-control ms-5"aria-describedby="emailHelp">
+                             <button class="btn btn-warning sea w-50">Recherche</button>
+                        </div>
+                    </div>
+                </form>
+
+        {% endif %}
+
+         {% if request.path == "/expat/article/equipements&pieces" %}
+
+            <h5 class="d-flex justify-content-start mt-3 ms-5">Équipements & pièces</h5>
+                <form>
+                    <div class="d-flex">
+                         <div class="mb-3" class="form-control">
+                             <input type="text" class="form-control  lieu" placeholder="Lieu" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 min" placeholder="Min prix" />
+                        </div>
+                        <div class="mb-3" class="form-control">
+                             <input type="number" class="form-control me-5 max " placeholder="Max prix" />
+                        </div>
+                         <div class="mb-3" class="form-control">
+                             <select type="number" class="form-control me-5 etat">
+                                 <option>État</option>
+                                 <option>Neuf</option>
+                                 <option>Reconditionné</option>
+                                 <option>D'occassion</option>
+                                 <option>Venant</option>
+                             </select>
+                        </div>
+                    </div>
+                    <div class="d-flex mt-3 mb-3">
+                         <div class="mb-3" class="form-control ms-5"aria-describedby="emailHelp">
+                             <button class="btn btn-warning sea w-50">Recherche</button>
+                        </div>
+                    </div>
+                </form>
+
+        {% endif %}
+
+
+    </div>
+</div>
+
+<div class="listings-page-search__spacer">&nbsp;</div>
+
+<div class="listings-page-search__brands">
+    <div class="listings-page-search__title">
+        <h5 class="listings-page-search__title-name">Parcourir par les plus populaires</h5>
+        <a href="https://www.expat-dakar.com/voitures" class="listings-page-search__view-all viewable">Tout voir</a>
+    </div>
+    <div class="listings-page-search__brands-icons listings-page-search__small-screen filter__list--contracted" data-search-filter-group="" data-search-filter-toggle-group="" data-search-filter-group-count="9" data-search-filter-expand-min-size="6">
+        <a href="https://www.expat-dakar.com/voitures/chevrolet" class="listings-page-search__brands-icon" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Chevrolet" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/chevrolet.aadcdadf.svg" loading="lazy">
+            <span>Chevrolet</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/ford" class="listings-page-search__brands-icon" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Ford" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/ford.ac8f762c.svg" loading="lazy">
+            <span>Ford</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/nissan" class="listings-page-search__brands-icon" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Nissan" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/nissan.97db5bfb.svg" loading="lazy">
+            <span>Nissan</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/toyota" class="listings-page-search__brands-icon" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Toyota" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/toyota.28905a65.svg" loading="lazy">
+            <span>Toyota</span></a>
+        <a href="https://www.expat-dakar.com/voitures/honda" class="listings-page-search__brands-icon" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Honda" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/honda.82112125.svg" loading="lazy">
+            <span>Honda</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/volkswagen" class="listings-page-search__brands-icon" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Volkswagen" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/volkswagen.f8e7b938.svg" loading="lazy">
+            <span>Volkswagen</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/mazda" class="listings-page-search__brands-icon filter__list-item--below-min-threshold" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Mazda" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/mazda.83e8bfe1.svg" loading="lazy">
+            <span>Mazda</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/audi" class="listings-page-search__brands-icon filter__list-item--below-min-threshold" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="Audi" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/audi.4bbb0d1e.svg" loading="lazy">
+            <span>Audi</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/bmw" class="listings-page-search__brands-icon filter__list-item--below-min-threshold" data-search-filter-item="" data-search-filter-item-count="9" data-search-filter-item-active="0">
+            <img width="50" height="50" alt="BMW" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/bmw.a4375682.svg" loading="lazy">
+            <span>BMW</span>
+        </a>
+        <div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander="">
+            <span data-search-filter-expander-open="" class="filter__list-expander__item filter__list-expander__item--expand">Afficher plus</span>
+            <span data-search-filter-expander-close="" class="filter__list-expander__item filter__list-expander__item--contract">Afficher moins</span>
+        </div>
+    </div>
+    <div class="listings-page-search__brands-icons listings-page-search__wide-screen">
+        <a href="https://www.expat-dakar.com/voitures/chevrolet" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Chevrolet" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/chevrolet.aadcdadf.svg" loading="lazy">
+            <span>Chevrolet</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/ford" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Ford" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/ford.ac8f762c.svg" loading="lazy">
+            <span>Ford</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/nissan" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Nissan" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/nissan.97db5bfb.svg" loading="lazy">
+            <span>Nissan</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/toyota" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Toyota" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/toyota.28905a65.svg" loading="lazy">
+            <span>Toyota</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/honda" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Honda" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/honda.82112125.svg" loading="lazy">
+            <span>Honda</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/volkswagen" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Volkswagen" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/volkswagen.f8e7b938.svg" loading="lazy">
+            <span>Volkswagen</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/mazda" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Mazda" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/mazda.83e8bfe1.svg" loading="lazy">
+            <span>Mazda</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/audi" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Audi" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/audi.4bbb0d1e.svg" loading="lazy">
+            <span>Audi</span>
+        </a>
+        <a href="https://www.expat-dakar.com/voitures/bmw" class="listings-page-search__brands-icon">
+            <img width="50" height="50" alt="Bmw" src="https://www.expat-dakar.com/assets/ed-site/img/property-options/bmw.a4375682.svg" loading="lazy">
+            <span>BMW</span>
+        </a>
+        <div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander="">
+            <span data-search-filter-expander-open="" class="filter__list-expander__item filter__list-expander__item--expand">Afficher plus</span>
+            <span data-search-filter-expander-close="" class="filter__list-expander__item filter__list-expander__item--contract">Afficher moins</span>
+        </div>
+    </div>
+</div>
+
+<div class="listings-page-search__spacer">&nbsp;</div>
+
+<div class="listings-page-search__new-products-section">
+    <h5 class="listings-page-search__title-name">Découvrez les nouveaux produits</h5>
+</div>
+
+<div class="container">
+<div class="listings-page-search__new-products listings-page-search__wide-screen"><div class="listings-page-search__new-product"><div class="listings-page-search__new-product__image-container"><img class="listings-page-search__new-product__image" alt="ui.vehicle.vehicles-section-details.discover-new-products.description.top.title-1" src="https://www.expat-dakar.com/assets/ed-site/img/static/new-cars.0760debf.png" loading="lazy"></div><div class="listings-page-search__new-product__image-overlay"><h2 class="listings-page-search__new-product__title">
+Voitures neuves
+</h2><div class="listings-page-search__new-product__description">
+Regardez les voitures les plus récentes que nous avons à offrir.
+</div><div class="listings-page-search__new-product__button"><a href="https://www.expat-dakar.com/voitures?condition=new" class="btn listings-page-search__new-product__button-link">
+Recherche
+</a></div></div></div><div class="listings-page-search__new-product"><div class="listings-page-search__new-product__image-container"><img class="listings-page-search__new-product__image" alt="ui.vehicle.vehicles-section-details.discover-new-products.description.top.title-2" src="https://www.expat-dakar.com/assets/ed-site/img/static/car-hire.e0b4026a.png" loading="lazy"></div><div class="listings-page-search__new-product__image-overlay"><h2 class="listings-page-search__new-product__title">
+Location de voiture
+</h2><div class="listings-page-search__new-product__description">
+Trouvez les meilleures voitures à louer pour votre confort.
+</div><div class="listings-page-search__new-product__button"><a href="https://www.expat-dakar.com/location-de-voiture" class="btn listings-page-search__new-product__button-link">
+Recherche
+</a></div></div></div><div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander=""><span data-search-filter-expander-open="" class="filter__list-expander__item filter__list-expander__item--expand">
+Afficher plus
+</span><span data-search-filter-expander-close="" class="filter__list-expander__item filter__list-expander__item--contract">
+Afficher moins
+</span></div></div>
+</div>
+
+<div class="listings-page-search__spacer">&nbsp;</div>
+
+<div class="container">
+  <div class="listings-page-search__tips-section"><div class="listings-page-search__title"><h5 class="listings-page-search__title-name">
+Conseils de sécurité pour l'acheteur
+</h5></div><div class="listings-page-search__tips listings-page-search__small-screen filter__list--contracted" data-search-filter-group="" data-search-filter-toggle-group="" data-search-filter-group-count="4" data-search-filter-expand-min-size="2"><div class="listings-page-search__tip" data-search-filter-item="" data-search-filter-item-count="4" data-search-filter-item-active="0"><span class="listings-page-search__tip__icon green"><svg class="i i-paragraph " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#paragraph"></use></svg></span><span class="listings-page-search__tip__description">
+Rencontrez toujours les vendeurs dans un lieu public sûr.
+</span></div><div class="listings-page-search__tip" data-search-filter-item="" data-search-filter-item-count="4" data-search-filter-item-active="0"><span class="listings-page-search__tip__icon purple"><svg class="i i-car-tick " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#car-tick"></use></svg></span><span class="listings-page-search__tip__description">
+Assurez-vous que le vendeur vous a fourni toutes les informations.
+</span></div><div class="listings-page-search__tip filter__list-item--below-min-threshold" data-search-filter-item="" data-search-filter-item-count="4" data-search-filter-item-active="0"><span class="listings-page-search__tip__icon orange"><svg class="i i-phone-tick " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#phone-tick"></use></svg></span><span class="listings-page-search__tip__description">
+Assurez-vous de voir l’article avant d’effectuer le paiement.
+</span></div><div class="listings-page-search__tip filter__list-item--below-min-threshold" data-search-filter-item="" data-search-filter-item-count="4" data-search-filter-item-active="0"><span class="listings-page-search__tip__icon blue"><svg class="i i-car-check " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#car-check"></use></svg></span><span class="listings-page-search__tip__description">
+Assurez-vous que vous disposez des coordonnées correctes du vendeur.
+</span></div><div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander=""><span data-search-filter-expander-open="" class="filter__list-expander__item filter__list-expander__item--expand">
+Afficher plus
+</span><span data-search-filter-expander-close="" class="filter__list-expander__item filter__list-expander__item--contract">
+Afficher moins
+</span></div></div><div class="listings-page-search__tips  listings-page-search__wide-screen"><div class="listings-page-search__tip"><span class="listings-page-search__tip__icon purple"><svg class="i i-paragraph " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#paragraph"></use></svg></span><span class="listings-page-search__tip__description">
+Rencontrez toujours les vendeurs dans un lieu public sûr.
+</span></div><div class="listings-page-search__tip"><span class="listings-page-search__tip__icon orange"><svg class="i i-car-tick " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#car-tick"></use></svg></span><span class="listings-page-search__tip__description">
+Assurez-vous que le vendeur vous a fourni toutes les informations.
+</span></div><div class="listings-page-search__tip"><span class="listings-page-search__tip__icon blue"><svg class="i i-phone-tick " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#phone-tick"></use></svg></span><span class="listings-page-search__tip__description">
+Assurez-vous de voir l’article avant d’effectuer le paiement.
+</span></div><div class="listings-page-search__tip"><span class="listings-page-search__tip__icon green"><svg class="i i-car-check " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#car-check"></use></svg></span><span class="listings-page-search__tip__description">
+Assurez-vous que vous disposez des coordonnées correctes du vendeur.
+</span></div><div class="filter__list-expander listings-page-search__item--show-more-less" data-search-filter-expander=""><span data-search-filter-expander-open="" class="filter__list-expander__item filter__list-expander__item--expand">
+Afficher plus
+</span><span data-search-filter-expander-close="" class="filter__list-expander__item filter__list-expander__item--contract">
+Afficher moins
+</span></div></div></div>
+</div>
+
+<div class="listings-page-search__spacer">&nbsp;</div>
+<div>
+    <h4 class="text-center">Véhicules</h4>
+</div>
+ <div class="bbb_viewed">
+                <div class="row">
+                    <div class="col">
+                       <div class="bbb_main_container">
+                        <div class="bbb_viewed_title_container">
+
+                            <div class="bbb_viewed_nav_container">
+                                <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                                <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
+                            </div>
+                        </div>
+
+                        <div class="bbb_viewed_slider_container">
+                            <div class="owl-carousel owl-theme bbb_viewed_slider">
+                            {% for article in article %}
+                            <div class="listing-card__aside m-3 owl-item">
+                                    <div class="listing-card__image bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                        <div class="listing-card__image__inner-container">
+                                            <a href="{{ url_for('article',id_article=article.id) }}">
+                                                <div class="listing-card__image__inner bbb_viewed_image">
+                                                    <img src="{{article.img_url}}" class="listing-card__image__resource vh-img" alt="" width="200px" height="200px">
+                                                </div>
+                                                 <div class="bbb_viewed_content text-center">
+                                                    <div class="bbb_viewed_price"></div>
+                                                    <div class="bbb_viewed_name"></div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                </div>
+               </div>
+             </div>
+    </div>
+</div>
+{% endblock %}
+
+
+

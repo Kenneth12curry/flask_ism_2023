@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+
+
+{% block title %}
+    {{ super() }} | Admin
+{% endblock title %}
+
+
+
+{% block content %}
+<h1>Les Utilisateurs</h1>
+
+<a href="" class="link-primary"> + Nouvel Utilisateur</a>
+
+<table class="table table-striped mt-5" width="100%">
+  <thead>
+    <tr>
+      <th scope="col">Id</th>
+      <th scope="col">Nom et Prénom</th>
+      <th scope="col">Email</th>
+      <th scope="col">Telephone</th>
+      <th scope="col">Password</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for user in users %}
+
+    <tr class="{{ tr_class }}">
+      <td>{{ user.id }}</td>
+      <td>{{ user.nomComplet }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user. telephone}}</td>
+      <td>{{ user.password }}</td>
+      <td>
+          <a href="" class="btn btn-sm btn-succes"><i class="fa-solid fa-power-off"></i></a>
+          <a href="#" class="btn btn-sm btn-warning"><i class="fa-solid fa-pen-to-square"></i></a>
+          <a href="#" class="btn btn-sm btn-danger"><i class="fa-solid fa-trash"></i></a>
+      </td>
+    </tr>
+  {% endfor %}
+
+
+  </tbody>
+</table>
+
+{% endblock content %}
+

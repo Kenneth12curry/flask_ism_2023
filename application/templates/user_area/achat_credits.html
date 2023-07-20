@@ -1,0 +1,82 @@
+{% extends "layouts/base_user_area.html" %}
+
+{% block container %}
+<div class="d-flex justify-content-start mt-3">
+    <h5>Achats de credits </h5>
+</div>
+<div class="bg-light w-75 h-25 mt-3">
+    <p class="fw-bold text-dark mt-3">Resumé</p>
+    <div class="d-flex justify-content-center">
+        <div class="bg-white w-50">
+            <div class="d-flex justify-content-start">
+                <p class="fw-bold text-dark me-5">Solde Crédit</p>
+                <p>Valable 6 mois</p>
+            </div>
+            <div>
+                <div class="d-flex justify-content-start">
+                     <p>0</p>
+                </div>
+                <div class="d-flex justify-content-start">
+                     <p><small>1 Credit = 2000 F Cfa</small></p>
+                </div>
+            </div>
+            <div class="d-flex justify-content-start bg-primary h-25">
+                <p class="fw-bold text-white">Qu'est-ce que c'est ?</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="user-page__content user-page__content--page">
+    <div class="user-page__title re">Recharger mon compte</div>
+    <div class="user-page__subtitle se">Sélectionnez le forfait de crédits qui réponds le plus à vos besoins</div>
+    <div class="post-listing-fields">
+        <div class="post-listing-fields__col post-listing-fields__col--center">
+            <form>
+                 <div class="form-group mt-4">
+
+                    <div class="d-flex justify-content-start radio">
+                        <small><input type="radio" name="" /></small>
+                        <small><p class="ftm me-5">12 000 F Cfa - 6 crédits</p></small>
+                        <small><p class="ftm me-5">Économisez 0%</p></small>
+                    </div>
+
+                    <div class="d-flex justify-content-start radio">
+                        <small><input type="radio" name="" /></small>
+                        <small><p class="ftm me-5">12 000 F Cfa - 6 crédits</p></small>
+                        <small><p class="ftm me-5">Économisez 0%</p></small>
+                    </div>
+
+                    <div class="d-flex justify-content-start radio">
+                        <small><input type="radio" name="" /></small>
+                        <small><p class="ftm me-5">12 000 F Cfa - 6 crédits</p></small>
+                        <small><p class="ftm me-5">Économisez 0%</p></small>
+                    </div>
+
+                     <div class="d-flex justify-content-start radio">
+                        <small><input type="radio" name="" /></small>
+                        <small><p class="ftm me-5">12 000 F Cfa - 6 crédits</p></small>
+                        <small><p class="ftm me-5">Économisez 0%</p></small>
+                    </div>
+                </div>
+                 <div class="form-group">
+                    <label class="num1" for="order_number">Numéro de référence</label>
+                    <input class="form-control w-50 num" name="order_number" type="text" id="order_number">
+                    <div class="errors"></div>
+                </div>
+
+                <div>
+                    <button class="btn btn-warning">Acheter des crédits</button>
+                </div>
+            </form>
+            <div class="d-flex justify-content-start bg-light mt-4 w-75">
+                <p>Besoin d’aide ou de renseignements sur nos forfaits ? Contactez l'équipe de Expat-Dakar pour vous conseiller.</p>
+                <button class="btn btn-secondary">Contactez-nous</button>
+            </div>
+
+        </div>
+    </div>
+</div>
+<div></div>
+
+
+{% endblock %}

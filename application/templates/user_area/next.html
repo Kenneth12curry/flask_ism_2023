@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+  <!DOCTYPE html>
+  <html>
+                  <head>
+                    <meta charset="UTF-8">
+                    <title>Menu déroulant avec icône de personne</title>
+                    <style>
+                      .dropdown {
+                        position: relative;
+                        display: inline-block;
+                      }
+                      .dropdown-content {
+                        display: none;
+                        position: absolute;
+                        z-index: 1;
+                        background-color: #f9f9f9;
+                        min-width: 160px;
+                        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+                      }
+                      .dropdown-content a {
+                        color: black;
+                        padding: 12px 16px;
+                        text-decoration: none;
+                        display: block;
+                      }
+                      .dropdown:hover .dropdown-content {
+                        display: block;
+                      }
+                      .icon {
+                        display: inline-block;
+                        width: 50px;
+                        height: 50px;
+                        background-color: orange;
+                        border-radius: 50%;
+                        text-align: center;
+                        color: white;
+                        font-size: 30px;
+                        line-height: 50px;
+                        cursor: pointer;
+                      }
+                    </style>
+                  </head>
+                  <body>
+                    <div class="dropdown">
+                      <div class="icon" onclick="toggleDropdown()"></div>
+                      <div class="dropdown-content" id="myDropdown">
+                        <a href="#">Mon compte</a>
+                        <a href="#">Déconnexion</a>
+                      </div>
+                    </div>
+                    <script>
+                      function toggleDropdown() {
+                        document.getElementById("myDropdown").classList.toggle("show");
+                      }
+                    </script>
+                  </body>
+                </html>
+</body>
+</html>

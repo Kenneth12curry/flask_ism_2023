@@ -1,0 +1,231 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+
+<div class="container mt-3">
+
+     <div class="row">
+
+         <div class="col-sm-3 d-flex flex-column">
+
+             <div class="search__filter" id="filters" data-search-filter="">
+                <form method="GET" action="" >
+                 <div class="filters">
+                      <div class="filters__inner">
+                        <div class="filter-group" style="order: 10">
+                          <div class="d-flex justify-content-start filter-group__title mt-5">
+                              <label for="search-filter">Filtrer les résultats</label>
+                          </div>
+                          <div class="filter-group__content">
+                            <div class="filter">
+                                <div class="filter__text">
+                                    <input class="form-control filter__text-input" placeholder="Affiner les résultats de la recherche" id="search-filter" name="filtrer" type="search">
+                                </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filter-group" style="order: 20">
+                          <div class="d-flex justify-content-start filter-group__title">Trier par</div>
+                          <div class="filter_group__content">
+                            <div class="filter">
+                              <div class="filter__text">
+                                <label for="sort" class="sr-only">Trier par</label>
+                                <select class="form-control custom-select" data-listing-form-trigger-change="" id="sort" name="sort">
+                                    <option value="offers" selected="selected">Offres spéciales</option>
+                                    <option value="latest">Plus récentes</option>
+                                    <option value="lowest-price">Prix décroissants</option>
+                                    <option value="highest-price">Prix croissants</option>
+                                </select>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="filter-group" style="order: 60">
+                          <div class="d-flex justify-content-start filter-group__title">Catégories</div>
+                        </div>
+                    </div>
+                     <div>
+                          <div class="filter-group" style="order: 60">
+                            <div class="d-flex justify-content-start filter-group__title">Annonces</div>
+                          </div>
+                         <ul class="menu-nav__list">
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-glasses me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="{{url_for('index2', a='Mode&beauté')}}">Mode & beauté</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-basketball me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="{{url_for('index2', a='Sports')}}">Sports, loisirs & voyages</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-computer me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="{{url_for('index2', a='Multimédia')}}">Multimédia</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-paw me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="#">Animaux</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-truck-pickup me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="#">Agroalimentaire</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fa-solid fa-screwdriver-wrench me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="#">Matériaux, et équipements</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-users-gear me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="#">Services</a>
+                             </li>
+
+                             <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-house me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="#">Maison</a>
+                             </li>
+
+                              <li class="d-flex justify-content-start mt-2">
+                                 <i class="mt-1 fas fa-handshake me-1" style="color:#f29541;"></i>
+                                 <a class="text-dark" href="#">Demandes d'emploi</a>
+                             </li>
+
+                         </ul>
+                     </div>
+                    <hr class="bg-dark hr">
+                    <div class="">
+                          <button type="submit" class="btn btn-warning w-100">Filtrer</button>
+                    </div>
+                </div>
+                </form>
+             </div>
+
+         </div>
+
+         <div class="col-sm-9 d-flex flex-column mt-5">
+
+             <div class="listings-header__title">
+                 <div class="listings-header-title">
+                     <h1 class="listings-header-title__title">Petites annonces</h1>
+                     <span class="listings-header-title__count">4034 résultats trouvés</span>
+                 </div>
+                 <div class="listings-header-refine-search">
+                     <a href="#filters" class="btn btn-primary btn-sm listings-header-refine-search__button" data-search-filter-toggle="">
+                         <svg class="i i-filter " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#filter"></use></svg>Filtrer</a>
+                 </div>
+                 <!--div pour le bouton sauvegarder-->
+                 <div class="listings-header-alert listings-header-alert--guest">
+                      <!--bouton sauvegarder-->
+                     <input id="monBouton" class="btn btn-warning" type="button" value="Sauvegarder la recherche" onclick="afficherInput()">
+                 </div>
+
+             </div>
+
+            <!--Div qu'il faut faire apparaître -->
+            <div class="mt-3 mb-3" id="maDiv" style="display:none;">
+                <form action="" method="POST">
+                    <input class="w-75" type="email" id="monInput" name="monInput" placeholder="Email" required />
+                    <button class="btn btn-warning">Soumettre</button>
+                </form>
+            </div>
+
+            {% for article in data %}
+             <div class="listings-cards mt-3">
+             <div class="listings-cards__list" data-scroller="{&quot;append&quot;:&quot;.listings-cards__list-item&quot;,&quot;maxPages&quot;:3}">
+                <div class="listings-cards__list-item ">
+                    <div class="listing-card listing-card--tab listing-card--has-contact listing-card--has-content listing-card--highlight-placeholder">
+                    <a href="{{ url_for('article',id_article=article.id) }}" class="listing-card__inner" id="listing-2725287" data-t-listing="" data-t-listing_context="search" data-t-listing_id="2725287">
+                        <div class="listing-card__aside">
+                            <div class="listing-card__image">
+                                <div class="listing-card__image__inner-container">
+
+                                  <div class="listing-card__image__inner">
+                                      <!--image d'un article-->
+                                      <img src="{{article.img_url}}" class="listing-card__image__resource vh-img" alt="{{article.img_url}}">
+                                  </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="listing-card__content 1">
+                            <div class="listing-card__content__inner">
+                                <div class="listing-card__header">
+                                    <div class="listing-card__header-content">
+                                        <div class="d-flex justify-content-start listing-card__header__title">{{article.title}}</div><br />
+                                            <div class="d-flex justify-content-start listing-card__header__location">
+                                                <svg class="i i-gmaps " aria-hidden="true"><use xlink:href="https://www.expat-dakar.com/assets/ed-site/icons/map.caece3cf.svg#gmaps"></use></svg>
+                                                {{article.adresse}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="listing-card__date-line">
+                                        <div class="listing-card__header__date">Hier, 22:33</div>
+                                    </div>
+
+                                    <div class="listing-card__info-bar__price mt-3">
+                                        <span class="listing-card__price">
+                                            <span class="listing-card__price__value 1">{{article.price}} F Cfa</span>
+                                        </span>
+                                    </div>
+
+                                    <div class="listing-card__info-bar">
+
+                                    <div class="listing-card__info-bar__contact">
+
+                                        <img src="https://img1.freepng.fr/20180413/zuq/kisspng-computer-icons-telephone-call-symbol-phone-vector-5ad05094281a54.2120650615236015561643.jpg" width="27px" height="27px" />
+                                        <a href="https://wa.me/221778374889" target="_blank">
+                                            <img src="https://img.icons8.com/color/256/whatsapp.png" alt="Contacter via WhatsApp" width="30px" height="30px">
+                                        </a>
+                                        <a ref="{{url_for('compte')}}" target="_blank">
+                                            <img src="https://cdn-icons-png.flaticon.com/512/1602/1602799.png" width="30px" height="30px" />
+                                        </a>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </a>
+                    </div>
+                </div>
+            </div>
+            </div>
+             {% endfor %}
+        </div>
+</div>
+
+<script type="text/javascript">
+
+    // Récupérer le bouton par son ID
+var bouton = document.getElementById("monBouton");
+
+// Récupérer la div par son ID
+var div = document.getElementById("maDiv");
+
+// Ajouter un événement de clic au bouton
+bouton.addEventListener("click", function(){
+  // Vérifier si la div est visible ou cachée
+  if (div.style.display === "none") {
+    // Si elle est cachée, l'afficher en modifiant la propriété CSS "display"
+    div.style.display = "block";
+  } else {
+    // Sinon, la cacher en modifiant la propriété CSS "display"
+    div.style.display = "none";
+  }
+});
+
+
+</script>
+</div>
+
+{% endblock %}
+
+
+

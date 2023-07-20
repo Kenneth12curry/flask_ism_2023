@@ -1,0 +1,53 @@
+{% include 'shared/presentation.html' %}
+<body>
+    <header class="header header--auth">
+        <div class="header__inner">
+            <a href="{{url_for('index')}}" class="header-logo">
+                <span class="header-logo__brand">Expat-Dakar</span>
+                <img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar">
+            </a>
+            <span class="header-menu-toggle">
+                <a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle="" aria-label="Menu"></a>
+            </span>
+        </div>
+    </header>
+    <!--message-->
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>Succès!</strong> {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    {% endfor %}
+    <!--message-->
+    <div class="container bg-white w-50 mt-5 p-3">
+        <div class="text-center">
+            <h3 class="auth__title">
+            Bienvenue !<br>
+            Veuillez vous inscrire
+            </h3>
+           <form  action="{{url_for('inscription')}}"  method="POST">
+                <div class="form-group">
+                    <label class="d-flex justify-content-start">Numéro de téléphone</label>
+                    <input class="form-control w-100" name="tel" , placeholder="numéro de téléphone ...">
+                </div>
+                {{ form.csrf_token }}
+               <div class="form-group">
+                   <label class="d-flex justify-content-start">Mot de passe</label>
+                    {{ form.password(class='form-control' , placeholder="mot de passe ...") }}
+                   <ul>
+                         {% for error in form.password.errors %}
+                            <li><small class="text-danger">{{ error }}</small></li>
+                        {% endfor %}
+                   </ul>
+               </div>
+
+               <div class="auth__submit mb-5">
+                   <button type="submit" class="btn btn-warning w-100">S'inscrire</button>
+               </div>
+           </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,217 @@
+{% extends "layouts/base.html" %}
+
+
+{% block content %}
+
+<nav class="header-nav p-3" data-header-nav>
+     <div class="header-nav__inner-container">
+      <h5 class="text-white">Tableau de Bord</h5>
+      <ul class="header-nav__inner__right">
+           <div class="d-flex flex-row">
+                <h5 class="me-4">Mes Favoris</h5>
+                <h5>Mes Crédits</h5>
+           </div>
+      </ul>
+     </div>
+</nav>
+
+<div class="row">
+
+    <div class="col-3 mt-3">
+
+    <ul class="menu-nav__list">
+
+        <li class="menu-nav__list-item menu-nav__list-item__avatar__file">
+             <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                  background-color: #f29541; border-radius:50%; width:50px; height:50px;">
+                 <i class="fas fa-user fa-2x" style="color:#f5af70";></i>
+             </a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__header menu-nav__list-item__header-user">
+            <a href="{{url_for('user_area')}}" class="menu-nav__list-item__link menu-nav__list-item__link-header">Compte &amp; Profil</a>
+        </li>
+
+        <li class="menu-nav__list-item">
+            <a href="" class="menu-nav__list-item__link">Expat-Dakar user</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__notifications">
+            <a class="menu-nav__list-item__link" href="">
+                <span class="menu-nav__list-item__link__profile-icon">Notifications</span>
+            </a>
+        </li>
+
+        <li class="menu-nav__list-item">
+            <div class="menu-nav__list-item__logout">
+                <a href="" class="menu-nav__list-item__link" title="Logout">
+                    <span class="menu-nav__list-item__link__profile-icon">Déconnexion</span>
+                </a>
+            </div>
+        </li>
+
+        <hr class="menu-nav__list-item__divider">
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{ url_for('index')}}" class="menu-nav__list-item__link ">Accueil</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('annonce')}}" class="menu-nav__list-item__link ">Gérer mes annonces</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('publier')}}" class="menu-nav__list-item__link ">Publier une annonce</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('achat')}}" class="menu-nav__list-item__link ">Historique de mes achats</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="" class="menu-nav__list-item__link ">Mon showroom</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('credit')}}" class="menu-nav__list-item__link ">Acheter des crédits</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('favoris')}}" class="menu-nav__list-item__link ">Mes Favoris</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('message')}}" class="menu-nav__list-item__link ">Mes Messages</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('discussion')}}" class="menu-nav__list-item__link ">Mes discussions</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('alertes')}}" class="menu-nav__list-item__link ">Gérer mes alertes</a>
+        </li>
+
+        <li class="menu-nav__list-item menu-nav__list-item__user-navigation ">
+            <a href="{{url_for('profil')}}" class="menu-nav__list-item__link ">Mes Profil &amp; CV</a>
+        </li>
+    </ul>
+
+    </div>
+
+    <div class="col-1">
+        <div style="border-left: 1px solid #333; height: 100vh;"></div>
+    </div>
+
+
+    <div class="col-8">
+
+    {% block container %}
+
+        <h5 class="d-flex justify-content-start mt-5">Compte & Profil</h5>
+        <div class="d-flex justify-content-between bg-light w-75 mt-4">
+            <button class="btn btn-secondary">Profil</button>
+            <button class="btn btn-secondary">Compte</button>
+            <button class="btn btn-secondary">Notifications</button>
+        </div>
+        <div class="row">
+            <div class="col md-3">
+
+                <p class="ava mt-3">Avatar</p>
+                <div class="ava">
+                     <svg width="100" height="100">
+                      <circle cx="50" cy="50" r="45" fill="#6C63FF" />
+                      <clipPath id="avatar">
+                        <circle cx="50" cy="50" r="40" />
+                      </clipPath>
+                      <image x="10" y="10" width="80" height="80" xlink:href="https://example.com/avatar.jpg" clip-path="url(#avatar)" />
+                    </svg>
+                </div>
+
+            </div>
+
+            <div class="col md-9">
+                <div>
+                    <form method="POST" action="" >
+                        <div class="form-group">
+                            <input required="" class="form-control w-50" accept=".jpg,.jpeg,.png" name="avatar" type="file" id="avatar">
+                            <div class="errors"></div>
+                        </div>
+                        <div class="">
+                            <input type="button" class="avat btn btn-warning" value="Télécharger"/>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container">
+                <form action="" method="POST">
+                    <div class="form-group">
+                         <div class="d-flex justify-content-start">
+                               <label for="user">Nom & Prénom</label>
+                         </div>
+                        <input class="form-control w-50 ml-3" name="username" type="text" value="" id="user" >
+                        <div class="errors"></div>
+                    </div>
+
+                    <div class="form-group">
+                         <div class="d-flex justify-content-start">
+                               <label for="us">Masquer le numéro de téléphone</label>
+                         </div>
+                         <select class="form-control w-50 ml-3" id="us">
+                             <option value="">Veuillez sélectionner un</option>
+                             <option value="">Oui</option>
+                             <option value="">Non</option>
+                             <option value="">N/A</option>
+                         </select>
+                        <div class="errors"></div>
+                    </div>
+
+                     <div class="form-group">
+                         <div class="d-flex justify-content-start">
+                               <label for="usernam">Ville</label>
+                         </div>
+                         <input class="form-control w-50 ml-3"  name="username" type="text" value="" id="usernam" />
+                        <div class="errors"></div>
+                     </div>
+
+                     <div class="form-group">
+                         <div class="d-flex justify-content-start">
+                               <label for="u">Livraison Offerte</label>
+                         </div>
+                         <select class="form-control w-50 ml-3" id="u">
+                             <option value="">Veuillez sélectionner un</option>
+                             <option value="">Oui</option>
+                             <option value="">Non</option>
+                             <option value="">N/A</option>
+                         </select>
+                        <div class="errors"></div>
+                     </div>
+
+                     <div class="form-group">
+                         <div class="d-flex justify-content-start">
+                               <label for="uame">Nom & Prénom</label>
+                         </div>
+                        <textarea class="form-control w-50 ml-3" id="uame">
+
+                        </textarea>
+                        <div class="errors"></div>
+                    </div>
+                    <div class="ms-5 d-flex justify-content-start form-group">
+                        <button class="btn btn-warning">Enregistrer</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+
+    {% endblock %}
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+
+

@@ -1,0 +1,128 @@
+
+   <header class="header sticky-header sticky-header--top sticky-header--not-bottom" data-sticky="{&quot;type&quot;:&quot;header&quot;}">
+       <div class="header__inner">
+
+           <a href="{{url_for('index')}}" class="header-logo">
+               <span class="header-logo__brand">Expat-Dakar</span>
+               <img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar">
+           </a>
+
+           <span class="header-locale-spacer">&nbsp;</span>
+           <span class="header-menu-toggle">
+               <a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle="" aria-label="Menu"></a>
+           </span>
+
+           <div class="header-cta">
+               <a href="{{url_for('compte')}}" class="btn btn-primary header-cta__button">
+                   <span class="header-cta__button-title">Vendre</span>
+               </a>
+           </div>
+
+
+           <div class="header__buttons-section">
+                {% if not user %}
+                <div class="mt-1">
+                   <a class="text-dark" href="{{url_for('compte')}}">Connexion/inscription</a>
+                </div>
+               {% endif %}
+
+               {% if user %}
+               <div class="cta-credit">
+                   <a href="" class="btn btn-secondary cta-credit__button">
+                       <span class="cta-credit__button-title">Crédits</span>
+                   </a>
+               </div>
+
+               <div class="header-notifications">
+                   <div class="dropdown">
+                       <span class="header-notifications-dropdown  header-notifications-dropdown--unread " data-toggle="dropdown" data-header-notifications-badge="" data-header-notifications-badge-reset-url="https://www.expat-dakar.com/ajax/notifications/update" data-header-notifications-badge-has-unread-class="header-notifications-dropdown--unread">
+                           <span class="header-notifications-dropdown__badge">
+                               <i class="fa-solid fa-bell fa-2xl" style="color:#f29541";></i><span class="badge badge--primary header-notifications-dropdown__badge__count" data-header-notifications-badge-count="">1</span>
+                           </span>
+                       </span>
+                   </div>
+               </div>
+
+               <div class="header-auth">
+                   <div class="dropdown header-auth__item header-auth__item--dropdown">
+
+                          <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                            background-color: #f29541; border-radius:50%; width:50px; height:50px;">
+
+                            <i class="fas fa-user fa-2x" style="color:#ffffff";></i>
+
+                          </a>
+                          <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" href="{{url_for('user_area')}}">Compte/Profil</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('index')}}">Accueil</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('annonce')}}">Gérer Annonces</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('publier')}}">Publier Annonces</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('achat')}}">Historique d'achats</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('credit')}}">Achats de crédits</a></li><li><a class="dropdown-item" href="{{url_for('achat')}}">Historique d'achats</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('message')}}">Mes Messages</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('discussion')}}">Mes discussions</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('alertes')}}">Gérer mes alertes</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('profil')}}">Mes Profils & CV</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{url_for('logout')}}">Déconnexion</a></li>
+                          </ul>
+
+                       <div class="dropdown-menu dropdown-menu-right"></div>
+                   </div>
+               </div>
+               {% endif %}
+           </div>
+
+            <!--Champ de recherche-->
+           <div class="global-search">
+               <div class="global-search__inner">
+                   <form method="GET" action="{{url_for('findArticle')}}" accept-charset="UTF-8" class="global-search__form">
+                       <div class="global-search__query">
+                           <label for="q" class="sr-only">Mots clés</label>
+                           <input name="recherche" placeholder="Je recherche..." class="form-control autocomplete global-search__query-input" data-autocomplete="{&quot;appendTo&quot;:&quot;.global-search__inner&quot;}" data-url="https://www.expat-dakar.com/ajax/suggestions?is_business=0"  type="text" id="q" autocomplete="off">
+                       </div>
+                       <button type="submit" class="btn global-search__button">
+                           <i class="fa-solid fa-search" style="color:#00000";></i>
+                           <span hidden="">Rechercher</span>
+                       </button>
+                   </form>
+               </div>
+           </div>
+
+       </div>
+   </header>
+
+   <nav class="header-nav" data-header-nav>
+         <div class="header-nav__inner-container">
+          <ul class="header-nav__inner">
+               <li class="header-nav__inner__item">
+                  <a href="{{url_for('vehicules')}}" class="header-nav__inner__item__link">Véhicules</a>
+               </li>
+               <li class="header-nav__inner__item">
+                 <a href="" class="header-nav__inner__item__link">Offres d'emploi</a>
+               </li>
+               <li class="header-nav__inner__item">
+                 <a href="" class="header-nav__inner__item__link">Immobilier</a>
+               </li>
+               <li class="header-nav__inner__item">
+                  <a href="{{url_for('index2', a='Multimédia')}}" class="header-nav__inner__item__link">Multimédia</a>
+               </li>
+               <li class="header-nav__inner__item">
+                 <a href="" class="header-nav__inner__item__link">Maison</a>
+               </li>
+          </ul>
+          <ul class="header-nav__inner__right">
+                <li class="header-nav__inner__item header-nav__inner__item--all">
+                   <a href="" class="header-nav__inner__item__link">Autres Catégories</a>
+                </li>
+               <li class="header-nav__inner__item header-nav__inner__item--businesses">
+                   <i class="fas fa-briefcase fa-2x mt-3" style="color:#ffffff";></i>
+                   <a href="" class="header-nav__inner__item__link header-nav__inner__item__link--businesses">Les Boutiques</a>
+               </li>
+               <li class="header-nav__inner__item header-nav__inner__item--businesses">
+                    <i class="fas fa-handshake-angle fa-2x mt-3" style="color:#f29541";></i>
+                    <a href="" class="header-nav__inner__item__link header-nav__inner__item__link--deals">Promo</a>
+               </li>
+          </ul>
+         </div>
+    </nav>

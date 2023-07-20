@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>{{config['APP_NAME']}}</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="Free HTML Templates" name="keywords">
+        <meta content="Free HTML Templates" name="description">
+    
+        <!-- Favicon -->
+        <link href="img/favicon.ico" rel="icon">
+    
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/articleAdd.css') }}">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+    <link media="all" type="text/css" rel="stylesheet" href="https://www.expat-dakar.com/assets/ed-site/css/main.2b4b7db4.css">
+
+    <script src="{{ url_for('static',filename='js/dashStep.js') }}"></script>
+
+
+    </head>
+    <body style="background-color: #f0f0f0;">
+
+        <header class="header sticky-header sticky-header--top sticky-header--not-bottom" data-sticky="{&quot;type&quot;:&quot;header&quot;}">
+           <div class="header__inner">
+
+               <a href="{{url_for('index')}}" class="header-logo">
+                   <span class="header-logo__brand">Expat-Dakar</span>
+                   <img src="https://www.expat-dakar.com/assets/ed-site/img/logo-colour.05769328.svg" class="header-logo__img" alt="Expat-Dakar">
+               </a>
+
+               <span class="header-locale-spacer">&nbsp;</span>
+               <span class="header-menu-toggle">
+                   <a href="#" class="btn header-menu-toggle__button" data-menu-nav-toggle="" aria-label="Menu"></a>
+               </span>
+
+               <div class="header-cta">
+                   <a href="{{url_for('compte')}}" class="btn btn-primary header-cta__button">
+                       <span class="header-cta__button-title">Vendre</span>
+                   </a>
+           </div>
+
+           {% if user %}
+           <div class="header__buttons-section">
+
+               <div class="cta-credit">
+                   <a href="" class="btn btn-secondary cta-credit__button">
+                       <span class="cta-credit__button-title">Crédits</span>
+                   </a>
+               </div>
+
+               <div class="header-notifications">
+                   <div class="dropdown">
+                       <span class="header-notifications-dropdown  header-notifications-dropdown--unread " data-toggle="dropdown" data-header-notifications-badge="" data-header-notifications-badge-reset-url="https://www.expat-dakar.com/ajax/notifications/update" data-header-notifications-badge-has-unread-class="header-notifications-dropdown--unread">
+                           <span class="header-notifications-dropdown__badge">
+                               <i class="fa-solid fa-bell fa-2xl" style="color:#f29541";></i><span class="badge badge--primary header-notifications-dropdown__badge__count" data-header-notifications-badge-count="">1</span>
+                           </span>
+                       </span>
+                   </div>
+               </div>
+
+               <div class="header-auth">
+                   <div class="dropdown header-auth__item header-auth__item--dropdown">
+
+                          <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                            background-color: #f29541; border-radius:50%; width:50px; height:50px;">
+
+                            <i class="fas fa-user fa-2x" style="color:#ffffff";></i>
+
+                          </a>
+                          <ul class="dropdown-menu ">
+                            <li><a class="dropdown-item" href="{{url_for('compte')}}">Compte/Profil</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('index')}}">Accueil</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('annonce')}}">Gérer Annonces</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('publier')}}">Publier Annonces</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('achat')}}">Historique d'achats</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('favoris')}}">Mes Favoris</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('credit')}}">Achats de crédits</a></li><li><a class="dropdown-item" href="{{url_for('achat')}}">Historique d'achats</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('message')}}">Mes Messages</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('discussion')}}">Mes discussions</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('alertes')}}">Gérer mes alertes</a></li>
+                            <li><a class="dropdown-item" href="{{url_for('profil')}}">Mes Profils & CV</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="{{url_for('logout')}}">Déconnexion</a></li>
+                          </ul>
+
+                       <div class="dropdown-menu dropdown-menu-right"></div>
+                   </div>
+               </div>
+           </div>
+           {% endif %}
+
+           <div class="global-search">
+               <div class="global-search__inner">
+                   <form method="POST" action="" accept-charset="UTF-8" class="global-search__form">
+                       <div class="global-search__query">
+                           <label for="q" class="sr-only">Mots clés</label>
+                           <input placeholder="Je recherche..." class="form-control autocomplete global-search__query-input" data-autocomplete="{&quot;appendTo&quot;:&quot;.global-search__inner&quot;}" data-url="https://www.expat-dakar.com/ajax/suggestions?is_business=0" name="q" type="text" id="q" autocomplete="off">
+                       </div>
+                       <button type="submit" class="btn global-search__button">
+                           <i class="fa-solid fa-search" style="color:#00000";></i>
+                           <span hidden="">Rechercher</span>
+                       </button>
+                   </form>
+               </div>
+           </div>
+       </div>
+
+    </header>
+
+
+        <div class="row" style="
+   
+      background: #487fc1;
+      
+      box-shadow: 0 1px 1px rgba(0,0,0,.11),0 2px 2px rgba(0,0,0,.11),0 4px 4px rgba(0,0,0,.11),0 6px 8px rgba(0,0,0,.11),0 8px 16px rgba(0,0,0,.11);
+      color: #fff;
+      height:130px;">
+
+        <div class="col-lg-6  text-right "style="margin-left:60px;margin-top:20px;" >
+
+            <h3>Tableau Bord</h3>
+            
+        </div>
+
+        <div class="col-4 text-lg" style="margin-right:60px;">
+
+            <nav class="navbar navbar-expand ">
+              
+                  
+                    <ul class="navbar-nav">
+                      
+                      
+                      <li class="nav-item">
+                        <a class="nav-link text-white px-2" href="#" style="font-size:25px;"><i class="fa-solid fa-heart fa-sm" style="color: #adadad;"></i> Mes Favoris</a>
+                      </li>
+
+                      
+
+
+                      <li class="nav-item">
+                        <a class="nav-link text-white " href="#"  style="font-size:25px;"><i class="fas fa-handshake-angle"></i> Crédits</a>
+                      </li>
+
+                     
+                    </ul>
+                 
+            
+              </nav>
+        
+          
+        </div>
+    </div>
+       {% block content %}
+    
+       {% endblock  %}
+        
+        <script src="" async defer></script>
+        <script src="{{ url_for('static',filename='js/dashStep.js') }}"></script>
+       
+<!-- Contact Javascript File -->
+
+
+
+    </body>
+</html>

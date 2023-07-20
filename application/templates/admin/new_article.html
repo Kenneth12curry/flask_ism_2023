@@ -1,0 +1,113 @@
+{% extends "layouts/base.html" %}
+
+{% block title %}
+    {{super()}} | Admin - User
+{% endblock %}
+
+{% block content %}
+    <h1>Nouvelle Article</h1>
+    <hr>
+
+    {% for message in get_flashed_messages() %}
+        <div class="alert alert-info alert-dismissible fade show" role="alert">
+          <strong>Succès!</strong> {{ message }}
+          <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+    {% endfor %}
+
+
+
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <form action="{{ url_for('add_articles') }}" method="POST">
+                {{ form.csrf_token }}
+                <div class="form-group mb-4">
+                    {{ form.title.label }}
+                    {{ form.title(class='form-control') }}
+                    <ul>
+                        {% for error in form.title.errors %}
+                            <li><small class="text-danger">{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="form-group mb-4">
+                    {{ form.content.label }}
+                    {{ form.content(class='form-control') }}
+                    <ul>
+                        {% for error in form.content.errors %}
+                            <li><small class="text-danger">{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="form-group mb-4">
+                    {{ form.img_url.label }}
+                    {{ form.img_url(class='form-control') }}
+                    <ul>
+                        {% for error in form.img_url.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="form-group mb-4">
+                    {{ form.price.label }}
+                    {{ form.price(class='form-control') }}
+                    <ul>
+                        {% for error in form.price.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                 <div class="form-group mb-4">
+                    {{ form.adresse.label }}
+                    {{ form.adresse(class='form-control') }}
+                    <ul>
+                        {% for error in form.adresse.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                 <div class="form-group mb-4">
+                    {{ form.category.label }}
+                    {{ form.category(class='form-control') }}
+                    <ul>
+                        {% for error in form.category.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="form-group mb-4">
+                    {{ form.characteristic.label }}
+                    {{ form.characteristic(class='form-control') }}
+                    <ul>
+                        {% for error in form.characteristic.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                 <div class="form-group mb-4">
+                    {{ form.details.label }}
+                    {{ form.details(class='form-control') }}
+                    <ul>
+                        {% for error in form.details.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                 <div class="form-group mb-4">
+                    {{ form.offre.label }}
+                    {{ form.offre(class='form-control') }}
+                    <ul>
+                        {% for error in form.offre.errors %}
+                            <li><small>{{ error }}</small></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <br/>
+                <button class="btn btn-block btn-lg btn-primary mb-3">Ajouter</button>
+            </form>
+        </div>
+    </div>
+
+{% endblock content %}

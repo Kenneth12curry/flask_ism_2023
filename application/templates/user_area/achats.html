@@ -1,0 +1,35 @@
+{% extends "layouts/base_user_area.html" %}
+
+{% block container %}
+<h6 class="mt-5">Historique de mes achats</h6>
+<div class="user__content">
+    <div class="user-page">
+        <div class="user-page__container">
+            <div class="user-page__inner">
+                <div class="user-page__header">
+                    <div class="user-page__header__title">Historique de mes achats</div>
+                </div>
+                <div class="user-page__content">
+                    <div class="orders-container">
+                        <ul class="tabletolist nrh" id="tabletolist1" style=""></ul>
+                        <table class="orders stacktable stacktable--default" data-stacktable="" style="">
+                            <thead>
+                            <tr>
+                                <th>N° Commande</th>
+                                <th>Produits</th>
+                                <th>Mode de paiement</th>
+                                <th></th>
+                                <th>Date d'achat</th>
+                                <th>Statut</th>
+                            </tr>
+                            </thead>
+                        </table>
+                    </div>
+                    <div class="pagination-container"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

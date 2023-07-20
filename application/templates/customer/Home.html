@@ -1,0 +1,430 @@
+{% extends "layouts/base.html" %}
+
+{% block content %}
+
+<div class="hero-banner" style="background-color: #ffffff;">
+  <div class="hero-banner__container">
+   <div class="hero-banner__inner">
+    <div class="hero-banner__content">
+     <div class="hero-banner__image-mobile">
+      <a href="" data-t-hero-banner data-t-hero_banner_id="77" target="_blank" class="hero-banner__image-mobile__inner-container">
+         <div class="hero-banner__image-mobile__inner">
+           <img loading="eager" class="hero-banner__image-mobile__resource" alt="Senegindia" src="https://i.roamcdn.net/hz/ed/hero-banner-360w-244h/c77b0ee1f89fc9ca4d5e00f2a8196d0b/-/horizon-files-prod/ed/mobile_hero_banner_image/qyx2z3/dd94b5fe666136071d0f48e0cbc1f7a65f1b187a.png" />
+         </div>
+      </a>
+     </div>
+     <div class="hero-banner__image-desktop">
+      <a href="https://www.expat-dakar.com/senegindia" data-t-hero-banner data-t-hero_banner_id="77" target="_blank" class="hero-banner__image-desktop__inner-container">
+        <div class="hero-banner__image-desktop__inner">
+          <img loading="eager" class="hero-banner__image-desktop__resource" alt="Senegindia" src="https://i.roamcdn.net/hz/ed/hero-banner-1240w-378h/5c59cb83c3dcab88913c84c76216c85a/-/horizon-files-prod/ed/hero_banner_image/q15xe3/d90c9f57c002f3df238b3f02483df155d4e237b8.png" />
+        </div>
+      </a>
+    </div>
+   </div>
+  </div>
+ </div>
+</div>
+
+
+<div class="acheter bg-light home-items">
+ <div class="home-header">
+  <div class="home-header__container">
+     <h1 class="home-header__title">Tout acheter, tout vendre, tout simplement</h1>
+  </div>
+</div>
+
+<div class="home-ad-group home-ad-group--middle">
+
+    <div class="">
+
+        <div class="bn__outer">
+
+            <div class="mt-5"><h5>Top annonces</h5></div>
+            <!--div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel"-->
+            <div class="bbb_viewed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                           <div class="bbb_main_container">
+                            <div class="bbb_viewed_title_container">
+
+                                <div class="bbb_viewed_nav_container">
+                                    <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                                    <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                            </div>
+
+                            <div class="bbb_viewed_slider_container">
+                                <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                {% for article in posts %}
+                                <div class="listing-card__aside m-3 owl-item">
+                                        <div class="listing-card__image bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="listing-card__image__inner-container">
+                                                <a href="{{ url_for('article',id_article=article.id) }}">
+                                                    <div class="listing-card__image__inner bbb_viewed_image">
+                                                      <img src="{{article.img_url}}" class="listing-card__image__resource vh-img" alt="" width="200px" height="200px">
+                                                    </div>
+                                                     <div class="bbb_viewed_content text-center">
+                                                        <div class="bbb_viewed_price"></div>
+                                                        <div class="bbb_viewed_name"><a href="#"></a></div>
+                                                    </div>
+                                                </a>
+
+
+                                            </div>
+                                        </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                    </div>
+                   </div>
+                 </div>
+            </div>
+        </div>
+        </div>
+
+        </div>
+    </div>
+</div>
+
+<div class="home-categories">
+ <div class="home-categories__container">
+  <div class="home-categories__header">
+     <h3 class="home-categories__header__title">Catégories</h3>
+     <a href="" class="home-categories__header__btn">Tout voir</a>
+  </div>
+
+  <div class="d-flex justify-content-between m-3">
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+           <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+              background-color: #f29541; border-radius:50%">
+               <i class="fas fa-car" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="#" name="Véhicules" class="home-category__list-item__link fw-bold">Véhicules</a></h6>
+           <ul class="home-category__list">
+                <div></div>
+              <li><a href="" class="home-category__list-item__link">Voitures</a></li>
+              <li><a href="" class="home-category__list-item__link">Motos & Scooters</a></li>
+              <li><a href="" class="home-category__list-item__link">Location de voiture</a></li>
+              <li><a href="" class="home-category__list-item__link">Équipements & pièces</a></li>
+              <li><a href="" class="home-category__list-item__link">Utilitaires, vans & minibius</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">7848</span>
+           </a>
+       </div>
+     </div>
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+             <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+              background-color: #f29541; border-radius:50%">
+               <i class="fas fa-briefcase" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Offre d'emploi</a></h6>
+           <ul class="home-category__list">
+               <div></div>
+              <li><a href="" class="home-category__list-item__link">Emploi vente et commercial</a></li>
+              <li><a href="" class="home-category__list-item__link">Emploi marketing et communication</a></li>
+              <li><a href="" class="home-category__list-item__link">Emploi services à la personne</a></li>
+              <li><a href="" class="home-category__list-item__link">Emploi transport et logistique</a></li>
+              <li><a href="" class="home-category__list-item__link">Emploi médical et santé</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">362</span>
+           </a>
+       </div>
+     </div>
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+            <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+              background-color: #f29541; border-radius:50%">
+               <i class="fas fa-house-chimney-window" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Immobilier</a></h6>
+           <ul class="home-category__list">
+              <li><a href="" class="home-category__list-item__link">Appartements à louer</a></li>
+              <li><a href="" class="home-category__list-item__link">Appartements meublés</a></li>
+              <li><a href="" class="home-category__list-item__link">Terrains à vendre</a></li>
+              <li><a href="" class="home-category__list-item__link">Maisons à vendre</a></li>
+              <li><a href="" class="home-category__list-item__link">Maisons à louer</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">4058</span>
+           </a>
+       </div>
+     </div>
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+           <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+              background-color: #f29541; border-radius:50%">
+               <i class="fas fa-computer" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="{{url_for('index2', a='Multimédia')}}" class="home-category__list-item__link fw-bold">Multimédia</a></h6>
+           <ul class="home-category__list">
+              <li><a href="" class="home-category__list-item__link">Ordinateurs</a></li>
+              <li><a href="" class="home-category__list-item__link">Téléphone</a></li>
+              <li><a href="" class="home-category__list-item__link">Accessoires multimédia</a></li>
+              <li><a href="" class="home-category__list-item__link">TV & home cinéma</a></li>
+              <li><a href="" class="home-category__list-item__link">Jeux vidéos & consoles</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">14842</span>
+           </a>
+       </div>
+     </div>
+
+  </div>
+
+  <div class="d-flex justify-content-between m-3">
+
+         <div class="card" style="width: 18rem;">
+           <div class="card-body">
+               <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                    background-color: #f29541; border-radius:50%">
+                    <i class="fas fa-house" style="color:#ffffff";></i>
+                </a>
+               <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold" name="offre" value="maison">Maison</a></h6>
+               <ul class="home-category__list">
+                   <div></div>
+                  <li><a href="" class="home-category__list-item__link">Mobilier</a></li>
+                  <li><a href="" class="home-category__list-item__link">Electromenager</a></li>
+                  <li><a href="" class="home-category__list-item__link">Décoration, linge de mais...</a></li>
+                  <li><a href="" class="home-category__list-item__link">Vaiselle</a></li>
+                  <li><a href="" class="home-category__list-item__link">Jardinage, bricolage</a></li>
+               </ul>
+               <a href="" class="home-category__cta">
+                   <span class="home-category__cta__title">Tout parcourir</span>
+                   <span class="home-category__cta__count badge">362</span>
+               </a>
+           </div>
+         </div>
+
+         <div class="card" style="width: 18rem;">
+           <div class="card-body">
+              <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                    background-color: #f29541; border-radius:50%">
+                    <i class="fas fa-glasses" style="color:#ffffff";></i>
+              </a>
+               <h6 class="card-title text-center"><a href="{{url_for('index2', a='Mode&beauté')}}" class="home-category__list-item__link fw-bold">Mode & beauté</a></h6>
+               <ul class="home-category__list">
+                  <li><a href="" class="home-category__list-item__link">Enfant & bébé</a></li>
+                  <li><a href="" class="home-category__list-item__link">Parfums & produits cosmétiques</a></li>
+                  <li><a href="" class="home-category__list-item__link">Vêtements homme</a></li>
+                  <li><a href="" class="home-category__list-item__link">Vêtements femme</a></li>
+                  <li><a href="" class="home-category__list-item__link">Montres & bijoux</a></li>
+               </ul>
+               <a href="" class="home-category__cta">
+                   <span class="home-category__cta__title">Tout parcourir</span>
+                   <span class="home-category__cta__count badge">2911</span>
+               </a>
+           </div>
+         </div>
+
+         <div class="card" style="width: 18rem;">
+             <div class="card-body">
+                   <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                        background-color: #f29541; border-radius:50%">
+                        <i class="fas fa-basketball" style="color:#ffffff";></i>
+                    </a>
+                   <h6 class="card-title text-center"><a href="{{url_for('index2', a='Sports')}}" class="home-category__list-item__link fw-bold">Sports, loisirs & voyages</a></h6>
+                   <ul class="home-category__list">
+                      <li><a href="" class="home-category__list-item__link">Matériel de sport</a></li>
+                      <li><a href="" class="home-category__list-item__link">Vélos</a></li>
+                      <li><a href="" class="home-category__list-item__link">Instruments de musique</a></li>
+                      <li><a href="" class="home-category__list-item__link">CDs,DVDs, & livres</a></li>
+                      <li><a href="" class="home-category__list-item__link">Tourisme & activictés</a></li>
+                   </ul>
+                   <a href="" class="home-category__cta">
+                       <span class="home-category__cta__title">Tout parcourir</span>
+                       <span class="home-category__cta__count badge">1015</span>
+                   </a>
+             </div>
+         </div>
+
+        <div class="card" style="width: 18rem;">
+           <div class="card-body">
+               <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                    background-color: #f29541; border-radius:50%">
+                    <i class="fas fa-users-gear" style="color:#ffffff";></i>
+               </a>
+               <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Services</a></h6>
+               <ul class="home-category__list">
+                  <li><a href="" class="home-category__list-item__link">Prestation de services</a></li>
+                  <li><a href="" class="home-category__list-item__link">Cours particuliers</a></li>
+                  <li><a href="" class="home-category__list-item__link">Formation</a></li>
+                  <li><a href="" class="home-category__list-item__link">Objets / retrouvés </a></li>
+               </ul>
+               <a href="" class="home-category__cta">
+                   <span class="home-category__cta__title">Tout parcourir</span>
+                   <span class="home-category__cta__count badge">1110</span>
+               </a>
+           </div>
+        </div>
+
+  </div>
+
+  <div class="d-flex justify-content-between m-3">
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+            <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                background-color: #f29541; border-radius:50%">
+                <i class="fas fa-handshake" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Demandes d'emploi</a></h6>
+           <ul class="home-category__list">
+              <li><a href="" class="home-category__list-item__link">Autres demandes d'emploi</a></li>
+              <li><a href="" class="home-category__list-item__link">Nettoyage, personnel</a></li>
+              <li><a href="" class="home-category__list-item__link">Chauffeur, conducteur</a></li>
+              <li><a href="" class="home-category__list-item__link">Restauration</a></li>
+              <li><a href="" class="home-category__list-item__link">Nounous, garde d'enfants</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">1599</span>
+           </a>
+       </div>
+     </div>
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+             <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                background-color: #f29541; border-radius:50%">
+                <i class="fa-solid fa-screwdriver-wrench" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Matériaux, outils & équipements</a></h6>
+           <ul class="home-category__list">
+              <li><a href="" class="home-category__list-item__link">Matériel pro</a></li>
+              <li><a href="" class="home-category__list-item__link">Matériel de construction </a></li>
+              <li><a href="" class="home-category__list-item__link">Caméras de surveillance</a></li>
+              <li><a href="" class="home-category__list-item__link">Energie & groupes élèctrogènes</a></li>
+              <li><a href="" class="home-category__list-item__link">Équipement médical</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">2062</span>
+           </a>
+       </div>
+     </div>
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+             <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                background-color: #f29541; border-radius:50%">
+                <i class="fas fa-truck-pickup" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Agroalimentaire</a></h6>
+           <ul class="home-category__list">
+              <li><a href="" class="home-category__list-item__link">Alimentaire</a></li>
+              <li><a href="" class="home-category__list-item__link">Agriculture</a></li>
+              <li><br /></li>
+              <li><br /></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">550</span>
+           </a>
+       </div>
+     </div>
+
+     <div class="card" style="width: 18rem;">
+       <div class="card-body">
+            <a href="" class="btn mr-2 dropdown btn-circle " role="button " data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="10,20" style="
+                background-color: #f29541; border-radius:50%">
+                <i class="fas fa-paw" style="color:#ffffff";></i>
+            </a>
+           <h6 class="card-title text-center"><a href="" class="home-category__list-item__link fw-bold">Animaux</a></h6>
+           <ul class="home-category__list">
+              <li><a href="" class="home-category__list-item__link">Accessoires animaux</a></li>
+              <li><a href="" class="home-category__list-item__link">Pigeons</a></li>
+              <li><a href="" class="home-category__list-item__link">Chiens & chiots</a></li>
+              <li><a href="" class="home-category__list-item__link">Autres animaux</a></li>
+              <li><a href="" class="home-category__list-item__link">Moutons</a></li>
+           </ul>
+           <a href="" class="home-category__cta">
+               <span class="home-category__cta__title">Tout parcourir</span>
+               <span class="home-category__cta__count badge">1185</span>
+           </a>
+       </div>
+     </div>
+
+  </div>
+ </div>
+</div>
+
+
+ <section class="text-center bg-white home-product">
+     <h5 class="text-center">Top boutiques</h5>
+ </section>
+
+ <section class=" justify-content-evenly bg-white home-product">
+    <div class="bbb_viewed">
+                <div class="container">
+                    <div class="row">
+                        <div class="col">
+                           <div class="bbb_main_container">
+                            <div class="bbb_viewed_title_container">
+
+                                <div class="bbb_viewed_nav_container">
+                                    <div class="bbb_viewed_nav bbb_viewed_prev"><i class="fas fa-chevron-left"></i></div>
+                                    <div class="bbb_viewed_nav bbb_viewed_next"><i class="fas fa-chevron-right"></i></div>
+                                </div>
+                            </div>
+
+                            <div class="bbb_viewed_slider_container">
+                                <div class="owl-carousel owl-theme bbb_viewed_slider">
+                                {% for prod in product %}
+                                <div class="listing-card__aside m-3 owl-item">
+                                        <div class="listing-card__image bbb_viewed_item discount d-flex flex-column align-items-center justify-content-center text-center">
+                                            <div class="listing-card__image__inner-container">
+                                                <a href="">
+                                                    <div class="listing-card__image__inner bbb_viewed_image">
+                                                      <img src="{{prod.img_url}}" class="listing-card__image__resource vh-img" alt="" width="400px" height="400px">
+                                                    </div>
+                                                     <div class="bbb_viewed_content text-center">
+                                                        <div class="bbb_viewed_price"></div>
+                                                        <div class="bbb_viewed_name"><a href="#"></a></div>
+                                                    </div>
+                                                </a>
+
+                                            </div>
+                                        </div>
+                                </div>
+                                {% endfor %}
+                            </div>
+                    </div>
+                   </div>
+                 </div>
+            </div>
+        </div>
+    </div>
+ </section>
+
+
+ <section class="home-product">
+   <div class="home-product__container">
+      <div class="home-product__inner">
+         <div class="home-product__content">
+            <h5 class="home-product__title">Développez votre business. Commencez à vendre dès aujourd'hui avec Expat-Dakar !</h5>
+            <p class="home-product__subtitle">Nous vous offrons des solutions adaptées à vos besoins pour vous permettre d’accélérer votre business.</p>
+         <div class="home-product__btn">
+            <a href="" class="btn btn-secondary">En savoirs plus</a>
+         </div>
+       </div>
+      </div>
+   </div>
+ </section>
+
+</div>
+
+
+{% endblock %}
