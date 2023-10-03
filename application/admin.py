@@ -1,4 +1,4 @@
-# fichier qui contient l'ensemble des routes conçernant l'admin#
+# fichier qui contient l'ensemble des routes conçernant l'admin #
 
 from flask import render_template, request, redirect, url_for, flash
 from sqlalchemy import null
@@ -104,7 +104,7 @@ def add_articles():
             saveArticle(new_article)
             flash(f"L'article ,'{title}',est ajouté avec succès!!!")
         else:
-            flash("Désolé l'article n'a pas pu être crée!!")
+            flash("Désolé l'article n'a pas pu être crée!")
         #
     return render_template("admin/new_article.html", form=register_form)
 

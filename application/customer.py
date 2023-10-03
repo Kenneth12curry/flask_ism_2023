@@ -1,4 +1,4 @@
-# fichier qui contient l'ensemble des routes conçernant le client#
+# fichier qui contient l'ensemble des routes conçernant le client #
 
 from flask import Flask, render_template, redirect, url_for, request, flash, session
 from sqlalchemy import null
