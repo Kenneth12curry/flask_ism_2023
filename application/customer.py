@@ -67,7 +67,7 @@ def register():
             #)
             #if new_user != null:
                 #saveUser(new_user)
-            flash('Mot de passe invalide')
+            flash('Mot de passe invalide !')
             # flash(f"L'utilisateur est ajouté avec succès!!!")
 
     return render_template("connexion/register.html", form=register_form)
